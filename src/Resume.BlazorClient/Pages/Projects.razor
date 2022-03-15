@@ -2,8 +2,34 @@
 
 <PageTitle>Projects</PageTitle>
 
-<h3>Projects</h3>
+<MudText Typo="Typo.h3" Align="Align.Center">Projects</MudText>
+<MudDivider Class="mt-4" />
+
+<MudTimeline TimelinePosition="TimelinePosition.Start" TimelineAlign="TimelineAlign.Start" DisableModifiers="true">
+
+    @foreach (var project in ProjectList)
+    {
+        <MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
+            <MudCard Outlined="true" Elevation="25">
+                <MudCardHeader>
+                    <MudText Typo="Typo.h6">@project</MudText>
+                </MudCardHeader>
+                <MudCardMedia Image="https://picsum.photos/900" Height="600" />
+                <MudCardContent>
+                    <MudText Typo="Typo.body2">Features:</MudText>
+                    <MudText Typo="Typo.body2">It is famous for Kopparberg Cider, now one of the best selling ciders in the UK and worldwide.</MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudTimelineItem>
+    }
+</MudTimeline>
 
 @code {
+    public List<string> ProjectList { get; set; } = null!;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ProjectList = new List<string>() { "Rumah Belajar", "Bank Soal", "Simpeka" };
 
+    }
 }
