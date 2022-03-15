@@ -1,9 +1,10 @@
 ﻿@page "/projects"
+@using Resume.BlazorClient.TransferObjects
 
 <PageTitle>Projects</PageTitle>
 
-<MudText Typo="Typo.h3" Align="Align.Center">Projects</MudText>
-<MudDivider Class="mt-4" />
+<MudText Typo="Typo.h3" Align="Align.Center" Class="my-4">Projects</MudText>
+<MudDivider />
 
 <MudTimeline TimelinePosition="TimelinePosition.Start" TimelineAlign="TimelineAlign.Start" DisableModifiers="true">
 
@@ -12,12 +13,34 @@
         <MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
             <MudCard Outlined="true" Elevation="25">
                 <MudCardHeader>
-                    <MudText Typo="Typo.h6">@project</MudText>
+                    <MudText Typo="Typo.h6">@project.Name</MudText>
                 </MudCardHeader>
-                <MudCardMedia Image="https://picsum.photos/900" Height="600" />
+                <MudDivider />
+                @*<MudCardMedia Image="https://picsum.photos/900" Height="600" />*@
                 <MudCardContent>
-                    <MudText Typo="Typo.body2">Features:</MudText>
-                    <MudText Typo="Typo.body2">It is famous for Kopparberg Cider, now one of the best selling ciders in the UK and worldwide.</MudText>
+                    <MudText Typo="Typo.body2">@project.Overview</MudText>
+                    <MudList Clickable="true">
+                        <MudListItem Text="Features:" InitiallyExpanded="true">
+                            <NestedList>
+                                @foreach (var feature in @project.Features)
+                                {
+                                    <MudListItem Icon="@Icons.Filled.Check" IconColor="Color.Tertiary">
+                                        @feature
+                                    </MudListItem>
+                                }
+                            </NestedList>
+                        </MudListItem>
+                        <MudListItem Text="Tools:" InitiallyExpanded="true">
+                            <NestedList>
+                                @foreach (var tool in @project.Tools)
+                                {
+                                    <MudListItem Icon="@Icons.Filled.Check" IconColor="Color.Tertiary">
+                                        @tool
+                                    </MudListItem>
+                                }
+                            </NestedList>
+                        </MudListItem>
+                    </MudList>
                 </MudCardContent>
             </MudCard>
         </MudTimelineItem>
@@ -25,11 +48,69 @@
 </MudTimeline>
 
 @code {
-    public List<string> ProjectList { get; set; } = null!;
+    public List<ProjectTransferObject> ProjectList { get; set; } = null!;
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ProjectList = new List<string>() { "Rumah Belajar", "Bank Soal", "Simpeka" };
-
+        ProjectList = new List<ProjectTransferObject>() {
+            new ProjectTransferObject
+            {
+                Name   = "[Experimental] Simple POS",
+                Overview = "",
+                Tools = new List<string>{ ".Net 6", "Web API", "Blazor WASM", "MudBlazor", "EF Core", "MediatR" },
+                Features = new List<string>{ }
+            },
+            new ProjectTransferObject
+            {
+                Name   = "Host to Host Laku Pandai",
+                Overview = "",
+                Tools = new List<string>{ "WCF", "EF6" },
+                Features = new List<string>{ }
+            },
+            new ProjectTransferObject
+            {
+                Name   = "Wakaf Engine",
+                Overview = "",
+                Tools = new List<string>{ "ASP.Net MVC 5", "EF6" },
+                Features = new List<string>{ }
+             },
+             new ProjectTransferObject
+             {
+                Name   = "E-Procurement",
+                Overview = "",
+                Tools = new List<string>{ "ASP.Net MVC 5", "EF6", "KendoUI for JQuery" },
+                Features = new List<string>{  }
+             },
+             new ProjectTransferObject
+             {
+                Name   = "Sumber Belajar",
+                Overview = "Aplikasi ini bertujuan untuk membantu guru dan komunitas yang ingin"
+                            + " berkarya dalam dunia pendidikan dengan cara menyimpan konten yang"
+                            + " berupa pdf dan video pembelajaran. Konten dapat diklasifikasikan sebagai"
+                            + " konten kurikulum ataupun non kurikulum.",
+                Tools = new List<string>{"ASP.Net Core 2.1", "EF Core"},
+                Features = new List<string>{ }
+             },
+             new ProjectTransferObject
+             {
+                Name   = "Bank Soal",
+                Overview = "Aplikasi ini bertujuan untuk membantu siswa untuk mengukur pemahaman"
+                            + " terhadap suatu materi. Pada aplikasi ini terdapat evaluasi yang telah dibuat"
+                            + " guru dapat diakses tanpa batasan waktu",
+                Tools = new List<string>{"ASP.Net MVC 5", "EF6"},
+                Features = new List<string>{ }
+             },
+             new ProjectTransferObject
+             {
+                Name   = "Simpeka",
+                Overview = "Aplikasi ini bertujuan untuk memudahkan pegawai dalam me-monitoring"
+                            + " perjalanan dinas dan kegiatan yang telah dan akan dilakukan. Pada aplikasi ini"
+                            + " pegawai dapat melihat total perjalanan dinas dan kegiatan. Pegawai juga"
+                            + " dapat mengunggah laporan ke dalam aplikasi ini serta dapat melihat berkas"
+                            + " apa saja yang belum diunggah",
+                Tools = new List<string>{"ASP.Net MVC 5", "EF6"},
+                Features = new List<string>{ }
+             },
+        };
     }
 }
