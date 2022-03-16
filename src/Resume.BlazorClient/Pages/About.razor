@@ -1,9 +1,124 @@
 ﻿@page "/about"
+@using Resume.BlazorClient.TransferObjects
 
-<PageTitle>About</PageTitle>
+<PageTitle>About Me</PageTitle>
 
-<h3>About</h3>
+<MudTimeline TimelinePosition="TimelinePosition.Start" TimelineAlign="TimelineAlign.Start" DisableModifiers="true">
+
+    <MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
+        <ItemDot>
+            <MudIcon Size="Size.Medium" Icon="@Icons.Filled.Person" />
+        </ItemDot>
+        <ItemContent>
+            <MudCard Outlined="true" Elevation="25">
+                <MudCardHeader>
+                    <MudText Typo="Typo.h6">Profile</MudText>
+                </MudCardHeader>
+                <MudDivider />
+                <MudCardContent>
+                    <MudText Typo="Typo.body2">Overview</MudText>
+                </MudCardContent>
+            </MudCard>
+        </ItemContent>
+    </MudTimelineItem>
+
+    <MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
+        <ItemDot>
+            <MudIcon Size="Size.Medium" Icon="@Icons.Filled.Work" />
+        </ItemDot>
+        <ItemContent>
+            <MudCard Outlined="true" Elevation="25">
+                <MudCardHeader>
+                    <MudText Typo="Typo.h6">Employment History</MudText>
+                </MudCardHeader>
+                <MudDivider />
+                <MudCardContent>
+                    <MudTimeline TimelinePosition="TimelinePosition.Start" TimelineAlign="TimelineAlign.Start" DisableModifiers="true">
+                        <MudTimelineItem Size="Size.Small" Color="Color.Info" Elevation="25">
+                            <MudText Typo="Typo.h6">(2020-Present) PT. Indocyber Global Teknologi</MudText>
+                            <MudText Typo="Typo.body1">.Net Developer</MudText>
+                        </MudTimelineItem>
+                        <MudTimelineItem Size="Size.Small" Color="Color.Info" Elevation="25">
+                            <MudText Typo="Typo.h6">(2017-2020) Pusat Teknologi Informasi dan Komunikasi Pendidikan dan Kebudayaan</MudText>
+                            <MudText Typo="Typo.body1">.Net Developer</MudText>
+                        </MudTimelineItem>
+                    </MudTimeline>
+                </MudCardContent>
+            </MudCard>
+        </ItemContent>
+    </MudTimelineItem>
+
+    <MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
+        <ItemDot>
+            <MudIcon Size="Size.Medium" Icon="@Icons.Filled.Star" />
+        </ItemDot>
+        <ItemContent>
+            <MudCard Outlined="true" Elevation="25">
+                <MudCardHeader>
+                    <MudText Typo="Typo.h6">Skills</MudText>
+                </MudCardHeader>
+                <MudDivider />
+                <MudCardContent>
+                    <MudGrid>
+                        @foreach (var skill in Skills)
+                        {
+                            <MudItem md="3" sm="6" xs="12">
+                                <MudPaper Class="d-flex py-2" Width="100%" Elevation="0">
+                                    <MudText Class="flex-none" Typo="Typo.h6">
+                                        <MudIcon Class="flex-none mr-1" Size="Size.Medium" Color="Color.Info" Icon="@Icons.Filled.Check" />
+                                        @skill
+                                    </MudText>
+                                </MudPaper>
+                            </MudItem>
+                        }
+                    </MudGrid>
+                    @*<div class="d-flex flex-grow-1 gap-4 flex-wrap">
+
+                        <MudPaper Class="d-flex py-2 mud-theme-primary" Width="20%" Elevation="0">
+                        <MudIcon Class="flex-none" Size="Size.Medium" Icon="@Icons.Filled.School" />
+                        <MudText Class="flex-none" Typo="Typo.h6">Education</MudText>
+                        </MudPaper>
+                        </div>*@
+                </MudCardContent>
+            </MudCard>
+        </ItemContent>
+    </MudTimelineItem>
+
+    <MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
+        <ItemDot>
+            <MudIcon Size="Size.Medium" Icon="@Icons.Filled.School" />
+        </ItemDot>
+        <ItemContent>
+            <MudCard Outlined="true" Elevation="25">
+                <MudCardHeader>
+                    <MudText Typo="Typo.h6">Education</MudText>
+                </MudCardHeader>
+                <MudDivider />
+                <MudCardContent>
+                    <MudTimeline TimelinePosition="TimelinePosition.Start" TimelineAlign="TimelineAlign.Start" DisableModifiers="true">
+                        <MudTimelineItem Size="Size.Small" Color="Color.Info" Elevation="25">
+                            <MudText Typo="Typo.h6">(2013-2017) Universitas Islam Syekh Yusuf Tangerang</MudText>
+                            <MudText Typo="Typo.body1">Teknik Informatika</MudText>
+                        </MudTimelineItem>
+                        <MudTimelineItem Size="Size.Small" Color="Color.Info" Elevation="25">
+                            <MudText Typo="Typo.h6">(2009-2012) SMKN 1 Tangerang</MudText>
+                            <MudText Typo="Typo.body1">Teknik Komputer dan Jaringan</MudText>
+                        </MudTimelineItem>
+                    </MudTimeline>
+                </MudCardContent>
+            </MudCard>
+        </ItemContent>
+    </MudTimelineItem>
+</MudTimeline>
+
+<MudDivider />
 
 @code {
+    public List<string> Skills => new List<string> {
+        "C#",
+        ".Net Core",
+        "ASP.Net Core",
+        "SQL Server"
+    };
 
 }
