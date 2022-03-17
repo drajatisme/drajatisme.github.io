@@ -77,13 +77,6 @@
                             </MudItem>
                         }
                     </MudGrid>
-                    @*<div class="d-flex flex-grow-1 gap-4 flex-wrap">
-
-                        <MudPaper Class="d-flex py-2 mud-theme-primary" Width="20%" Elevation="0">
-                        <MudIcon Class="flex-none" Size="Size.Medium" Icon="@Icons.Filled.School" />
-                        <MudText Class="flex-none" Typo="Typo.h6">Education</MudText>
-                        </MudPaper>
-                        </div>*@
                 </MudCardContent>
             </MudCard>
         </ItemContent>
@@ -121,9 +114,11 @@
 @code {
     public List<string> Skills => new List<string> {
         "C#",
+        "SQL Server",
         ".Net Core",
         "ASP.Net Core",
-        "SQL Server"
+        "EF Core",
+        "Blazor"
     };
 
 }
