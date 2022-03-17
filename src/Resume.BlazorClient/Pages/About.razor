@@ -17,7 +17,7 @@
                 <MudDivider />
                 <MudCardContent>
                     <MudText Typo="Typo.body2" Align="Align.Justify">
-                        Learning C# back in 2016 and loving it since then. Using WPF based project for my diploma degree and expanding to ASP.Net MVC 5 based project 
+                        Learning C# back in 2016 and loving it since then. Using WPF based project for my diploma degree and expanding to ASP.Net MVC 5 based project
                         with Entity Framework 6 for data management when got first job. Implementing Depedency Injection using Unity library and repository pattern.
                         Then starting learning ASP.Net Core 2.1 MVC based project in 2019 for maintaining new application from another vendor.
                         Got interest in Blazor WASM and implementing with new version of .Net 6 API and IdentityServer4.
@@ -39,14 +39,25 @@
                 <MudDivider />
                 <MudCardContent>
                     <MudTimeline TimelinePosition="TimelinePosition.Start" TimelineAlign="TimelineAlign.Start" DisableModifiers="true">
-                        <MudTimelineItem Size="Size.Small" Color="Color.Info" Elevation="25">
-                            <MudText Typo="Typo.h6">(2020-Present) PT. Indocyber Global Teknologi</MudText>
-                            <MudText Typo="Typo.body1">.Net Developer</MudText>
-                        </MudTimelineItem>
-                        <MudTimelineItem Size="Size.Small" Color="Color.Info" Elevation="25">
-                            <MudText Typo="Typo.h6">(2017-2020) Pusat Teknologi Informasi dan Komunikasi Pendidikan dan Kebudayaan</MudText>
-                            <MudText Typo="Typo.body1">.Net Developer</MudText>
-                        </MudTimelineItem>
+                        @foreach (var experience in Experiences)
+                        {
+                            <MudTimelineItem Size="Size.Small" Color="Color.Info" Elevation="25">
+                                <MudText Typo="Typo.h6">@experience.Period @experience.EmployeeName</MudText>
+                                <MudText Typo="Typo.body1">@experience.Position</MudText>
+                                <MudText Typo="Typo.body1">Details</MudText>
+                                <ul type="circle" class="pl-8">
+                                    @foreach (var detail in experience.JobDetail)
+                                    {
+                                        <li>
+                                            <MudText Class="flex-none" Typo="Typo.body1">
+                                                <MudIcon Class="flex-none mr-1" Size="Size.Medium" Color="Color.Info" Icon="@Icons.Filled.Check" />
+                                                @detail
+                                            </MudText>
+                                        </li>
+                                    }
+                                </ul>
+                            </MudTimelineItem>
+                        }
                     </MudTimeline>
                 </MudCardContent>
             </MudCard>
@@ -121,4 +132,49 @@
         "Blazor"
     };
 
+    public List<ExperienceTransferObject> Experiences => new List<ExperienceTransferObject>
+    {
+        new ExperienceTransferObject
+        {
+            EmployeeName = "PT. Indocyber Global Teknologi",
+            Position = ".Net Developer",
+            StartPeriod = 2020,
+            JobDetail = new List<string>
+            {
+                "Creating applications (web, console, WCF, API)",
+                "Configure task scheduler",
+                "Fixing application bugs",
+                "Adding features",
+                "Optimizing code / script",
+                "Deploy application",
+            }
+        },
+        new ExperienceTransferObject
+        {
+            EmployeeName = "Pusat Teknologi Informasi dan Komunikasi Pendidikan dan Kebudayaan",
+            Position = ".Net Developer",
+            StartPeriod = 2017,
+            EndPeriod = 2019,
+            JobDetail = new List<string>
+            {
+                "Creating applications (web)",
+                "Fixing application bugs",
+                "Adding features",
+                "Optimizing code",
+                "Deploy application",
+                "Configure Azure CI/CD"
+            }
+        }
+    };
+
+
+    public class ExperienceTransferObject
+    {
+        public string EmployeeName { get; set; } = null!;
+        public string Position { get; set; } = null!;
+        public int StartPeriod { get; set; }
+        public int EndPeriod { get; set; }
+        public string Period => $"({StartPeriod}-{(EndPeriod == 0 ? "Present" : EndPeriod)})";
+        public List<string> JobDetail { get; set; } = new List<string>();
+    }
 }
