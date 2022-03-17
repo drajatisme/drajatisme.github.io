@@ -56,38 +56,37 @@
             new ProjectTransferObject
             {
                 Name   = "[Experimental] Simple POS",
-                Overview = "",
+                Overview = "Project for learning Blazor, MudBlazor as frontend library, CQRS, and IdentityServer4",
                 Tools = new List<string>{ ".Net 6", "Web API", "Blazor WASM", "MudBlazor", "EF Core", "MediatR" },
                 Features = new List<string>{ }
             },
             new ProjectTransferObject
             {
                 Name   = "Host to Host Laku Pandai",
-                Overview = "",
+                Overview = "Middleware payment between Mandiri and AXA",
                 Tools = new List<string>{ "WCF", "EF6" },
                 Features = new List<string>{ }
             },
             new ProjectTransferObject
             {
                 Name   = "Wakaf Engine",
-                Overview = "",
+                Overview = "Storing benificiary for wakaf policy, integrating with another data source (customer detail) via API. Automatically update data (investment value) using Task Scheduler.",
                 Tools = new List<string>{ "ASP.Net MVC 5", "EF6" },
-                Features = new List<string>{ }
+                Features = new List<string>{""}
              },
              new ProjectTransferObject
              {
                 Name   = "E-Procurement",
-                Overview = "",
+                Overview = "Sistem terpusat dalam pengadaan barang dan jasa.",
                 Tools = new List<string>{ "ASP.Net MVC 5", "EF6", "KendoUI for JQuery" },
-                Features = new List<string>{  }
+                Features = new List<string>{ "E-Tender"}
              },
              new ProjectTransferObject
              {
                 Name   = "Sumber Belajar",
-                Overview = "Aplikasi ini bertujuan untuk membantu guru dan komunitas yang ingin"
-                            + " berkarya dalam dunia pendidikan dengan cara menyimpan konten yang"
-                            + " berupa pdf dan video pembelajaran. Konten dapat diklasifikasikan sebagai"
-                            + " konten kurikulum ataupun non kurikulum.",
+                Overview = "Aplikasi ini bertujuan untuk membantu guru maupun komunitas yang ingin"
+                            + " berkarya dalam dunia pendidikan dengan cara menyimpan konten yang dimiliki"
+                            + " berupa format pdf dan video pembelajaran.",
                 Tools = new List<string>{"ASP.Net Core 2.1", "EF Core"},
                 Features = new List<string>{ }
              },
@@ -95,21 +94,23 @@
              {
                 Name   = "Bank Soal",
                 Overview = "Aplikasi ini bertujuan untuk membantu siswa untuk mengukur pemahaman"
-                            + " terhadap suatu materi. Pada aplikasi ini terdapat evaluasi yang telah dibuat"
-                            + " guru dapat diakses tanpa batasan waktu",
+                            + " terhadap suatu materi melalui soal-soal yang telah dibuat oleh guru maupun dari Pustekkom.",
                 Tools = new List<string>{"ASP.Net MVC 5", "EF6"},
-                Features = new List<string>{ }
+                Features = new List<string>{ "Exam Online" }
              },
              new ProjectTransferObject
              {
                 Name   = "Simpeka",
-                Overview = "Aplikasi ini bertujuan untuk memudahkan pegawai dalam me-monitoring"
+                Overview = "Aplikasi ini bertujuan untuk memudahkan pegawai dalam memonitoring"
                             + " perjalanan dinas dan kegiatan yang telah dan akan dilakukan. Pada aplikasi ini"
                             + " pegawai dapat melihat total perjalanan dinas dan kegiatan. Pegawai juga"
                             + " dapat mengunggah laporan ke dalam aplikasi ini serta dapat melihat berkas"
-                            + " apa saja yang belum diunggah",
+                            + " apa saja yang belum diunggah.",
                 Tools = new List<string>{"ASP.Net MVC 5", "EF6"},
-                Features = new List<string>{ }
+                Features = new List<string>
+                {
+                    "Calendar timeline",
+                }
              },
         };
     }
