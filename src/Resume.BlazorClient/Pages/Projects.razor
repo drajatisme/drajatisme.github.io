@@ -19,28 +19,41 @@
                 @*<MudCardMedia Image="https://picsum.photos/900" Height="600" />*@
                 <MudCardContent>
                     <MudText Typo="Typo.body2">@project.Overview</MudText>
-                    <MudList Clickable="true">
-                        <MudListItem Text="Features:" InitiallyExpanded="true">
-                            <NestedList>
-                                @foreach (var feature in @project.Features)
-                                {
-                                    <MudListItem Icon="@Icons.Filled.Check" IconColor="Color.Tertiary">
-                                        @feature
-                                    </MudListItem>
-                                }
-                            </NestedList>
-                        </MudListItem>
-                        <MudListItem Text="Tools:" InitiallyExpanded="true">
-                            <NestedList>
-                                @foreach (var tool in @project.Tools)
-                                {
-                                    <MudListItem Icon="@Icons.Filled.Check" IconColor="Color.Tertiary">
+                    <MudDivider Class="my-2" />
+                    @if (@project.Features.Any())
+                    {
+                        <MudText Typo="Typo.body2">Features:</MudText>
+                        <MudGrid>
+                            @foreach (var feature in @project.Features)
+                            {
+                                <MudItem md="3" sm="6" xs="12">
+                                    <MudPaper Class="d-flex py-2" Width="100%" Elevation="0">
+                                        <MudText Class="flex-none" Typo="Typo.body1">
+                                            <MudIcon Class="mr-1" Size="Size.Medium" Color="Color.Info" Icon="@Icons.Filled.Check" />
+                                            @feature
+                                        </MudText>
+                                    </MudPaper>
+                                </MudItem>
+                            }
+                        </MudGrid>
+                        <MudDivider Class="mb-2" />
+
+                    }
+
+                    <MudText Typo="Typo.body2">Tools:</MudText>
+                    <MudGrid>
+                        @foreach (var tool in @project.Tools)
+                        {
+                            <MudItem md="3" sm="6" xs="12">
+                                <MudPaper Class="d-flex py-2" Width="100%" Elevation="0">
+                                    <MudText Class="flex-none" Typo="Typo.body1">
+                                        <MudIcon Class="mr-1" Size="Size.Medium" Color="Color.Info" Icon="@Icons.Filled.Check" />
                                         @tool
-                                    </MudListItem>
-                                }
-                            </NestedList>
-                        </MudListItem>
-                    </MudList>
+                                    </MudText>
+                                </MudPaper>
+                            </MudItem>
+                        }
+                    </MudGrid>
                 </MudCardContent>
             </MudCard>
         </MudTimelineItem>
@@ -65,14 +78,14 @@
                 Name   = "Host to Host Laku Pandai",
                 Overview = "Middleware payment between Mandiri and AXA",
                 Tools = new List<string>{ "WCF", "EF6" },
-                Features = new List<string>{ }
+                Features = new List<string>{ "Register VA", "Inquiry", "Payment", "Check "}
             },
             new ProjectTransferObject
             {
                 Name   = "Wakaf Engine",
                 Overview = "Storing benificiary for wakaf policy, integrating with another data source (customer detail) via API. Automatically update data (investment value) using Task Scheduler.",
                 Tools = new List<string>{ "ASP.Net MVC 5", "EF6" },
-                Features = new List<string>{""}
+                Features = new List<string>{}
              },
              new ProjectTransferObject
              {
