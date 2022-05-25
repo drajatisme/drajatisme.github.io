@@ -1,7 +1,8 @@
-﻿@page "/about"
+﻿@*@page "/about"*@
 @using Resume.BlazorClient.TransferObjects
 
-<PageTitle>About Me</PageTitle>
+<MudText Typo="Typo.h3" Align="Align.Center" Class="my-4">About</MudText>
+<MudDivider />
 
 <MudTimeline TimelinePosition="TimelinePosition.Start" TimelineAlign="TimelineAlign.Start" DisableModifiers="true">
 
@@ -112,10 +113,6 @@
                             <MudText Typo="Typo.h6">(2013-2017) Universitas Islam Syekh Yusuf Tangerang</MudText>
                             <MudText Typo="Typo.body1">Teknik Informatika</MudText>
                         </MudTimelineItem>
-                        <MudTimelineItem Size="Size.Small" Color="Color.Info" Elevation="25">
-                            <MudText Typo="Typo.h6">(2009-2012) SMKN 1 Tangerang</MudText>
-                            <MudText Typo="Typo.body1">Teknik Komputer dan Jaringan</MudText>
-                        </MudTimelineItem>
                     </MudTimeline>
                 </MudCardContent>
             </MudCard>
@@ -132,7 +129,8 @@
         ".Net Core",
         "ASP.Net Core",
         "EF Core",
-        "Blazor"
+        "Blazor",
+        "SignalR"
     };
 
     public List<ExperienceTransferObject> Experiences => new List<ExperienceTransferObject>

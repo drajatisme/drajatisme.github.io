@@ -1,7 +1,5 @@
-﻿@page "/projects"
+﻿@*@page "/projects"*@
 @using Resume.BlazorClient.TransferObjects
-
-<PageTitle>Projects</PageTitle>
 
 <MudText Typo="Typo.h3" Align="Align.Center" Class="my-4">Projects</MudText>
 <MudDivider />
@@ -68,10 +66,10 @@
         ProjectList = new List<ProjectTransferObject>() {
             new ProjectTransferObject
             {
-                Name   = "[Experimental] Simple POS",
-                Overview = "Project for learning Blazor, MudBlazor as frontend library, CQRS, and IdentityServer4",
-                Tools = new List<string>{ ".Net 6", "Web API", "Blazor WASM", "MudBlazor", "EF Core", "MediatR" },
-                Features = new List<string>{ }
+                Name   = "Kiyu",
+                Overview = "Queue Service",
+                Tools = new List<string>{ ".Net 6", "Web API", "Blazor WASM", "SignalR"},
+                Features = new List<string>{ "Realtime App" }
             },
             new ProjectTransferObject
             {
