@@ -19,13 +19,46 @@
                 <MudCardContent>
                     <MudText Typo="Typo.body2" Align="Align.Justify">
                     
-                        Using C# programming language for 4+ years  with MVC Framework. 
-                        Code with SOLID principle, especially when using .Net Core. 
-                        Experienced in basic CI/CD using Azure DevOps for deliver code to production servers.  
+                        Using C# programming language for 4+ years  with MVC Framework, and interested in .Net 6.
+                        @*
+                            Code with SOLID principle, especially when using .Net Core. 
+                            Experienced in basic CI/CD using Azure DevOps for deliver code to production servers.  
+                        *@
+                        
                         Configured task scheduler using Windows Task Scheduler and MS SQL Job, either using console application nor SQL script. 
-                        Seeking  a role with .Net Core solutions, where my skill can be improved by using C# latest features.
+                        Seeking a role with .Net Core solutions.
+                        @*, where my skill can be improved by using C# latest features.*@
                     
                     </MudText>
+                </MudCardContent>
+            </MudCard>
+        </ItemContent>
+    </MudTimelineItem>
+    
+    <MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
+        <ItemDot>
+            <MudIcon Size="Size.Medium" Icon="@Icons.Filled.Star" />
+        </ItemDot>
+        <ItemContent>
+            <MudCard Outlined="true" Elevation="25">
+                <MudCardHeader>
+                    <MudText Typo="Typo.h6">Skills</MudText>
+                </MudCardHeader>
+                <MudDivider />
+                <MudCardContent>
+                    <MudGrid>
+                        @foreach (var skill in Skills)
+                        {
+                            <MudItem md="3" sm="6" xs="12">
+                                <MudPaper Class="d-flex py-2" Width="100%" Elevation="0">
+                                    <MudText Class="flex-none" Typo="Typo.body1">
+                                        <MudIcon Class="mr-1" Size="Size.Medium" Color="Color.Info" Icon="@Icons.Filled.Check" />
+                                        @skill
+                                    </MudText>
+                                </MudPaper>
+                            </MudItem>
+                        }
+                    </MudGrid>
                 </MudCardContent>
             </MudCard>
         </ItemContent>
@@ -68,36 +101,8 @@
         </ItemContent>
     </MudTimelineItem>
 
-    <MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
-        <ItemDot>
-            <MudIcon Size="Size.Medium" Icon="@Icons.Filled.Star" />
-        </ItemDot>
-        <ItemContent>
-            <MudCard Outlined="true" Elevation="25">
-                <MudCardHeader>
-                    <MudText Typo="Typo.h6">Skills</MudText>
-                </MudCardHeader>
-                <MudDivider />
-                <MudCardContent>
-                    <MudGrid>
-                        @foreach (var skill in Skills)
-                        {
-                            <MudItem md="3" sm="6" xs="12">
-                                <MudPaper Class="d-flex py-2" Width="100%" Elevation="0">
-                                    <MudText Class="flex-none" Typo="Typo.body1">
-                                        <MudIcon Class="mr-1" Size="Size.Medium" Color="Color.Info" Icon="@Icons.Filled.Check" />
-                                        @skill
-                                    </MudText>
-                                </MudPaper>
-                            </MudItem>
-                        }
-                    </MudGrid>
-                </MudCardContent>
-            </MudCard>
-        </ItemContent>
-    </MudTimelineItem>
 
-    <MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
+    @*<MudTimelineItem Size="Size.Medium" Color="Color.Info" Elevation="25">
         <ItemDot>
             <MudIcon Size="Size.Medium" Icon="@Icons.Filled.School" />
         </ItemDot>
@@ -117,7 +122,7 @@
                 </MudCardContent>
             </MudCard>
         </ItemContent>
-    </MudTimelineItem>
+    </MudTimelineItem>*@
 </MudTimeline>
 
 <MudDivider />
@@ -126,11 +131,12 @@
     public List<string> Skills => new List<string> {
         "C#",
         "SQL Server",
-        ".Net Core",
+        //".Net Core",
         "ASP.Net Core",
         "EF Core",
         "Blazor",
-        "SignalR"
+        "SignalR",
+        "MudBlazor"
     };
 
     public List<ExperienceTransferObject> Experiences => new List<ExperienceTransferObject>

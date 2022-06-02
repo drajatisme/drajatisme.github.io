@@ -14,7 +14,19 @@
                     <MudText Typo="Typo.h6">@project.Name</MudText>
                 </MudCardHeader>
                 <MudDivider />
-                @*<MudCardMedia Image="https://picsum.photos/900" Height="600" />*@
+                @if (project.Medias.Count > 0)
+                {
+                    <MudCarousel Class="mud-width-full" Style="height:400px;" ShowBullets="false" TData="object">
+                        @foreach (var media in project.Medias)
+                        {
+                            <MudCarouselItem Transition="Transition.Slide" Color="@Color.Info">
+                                <div class="d-flex" style="height:100%">
+                                    <MudImage Src="@media" Class="mx-auto" Style="background-size:contain;" />
+                                </div>
+                            </MudCarouselItem>
+                        }
+                    </MudCarousel>
+                }
                 <MudCardContent>
                     <MudText Typo="Typo.body2">@project.Overview</MudText>
                     <MudDivider Class="my-2" />
@@ -67,9 +79,10 @@
             new ProjectTransferObject
             {
                 Name   = "Kiyu",
-                Overview = "Queue Service",
-                Tools = new List<string>{ ".Net 6", "Web API", "Blazor WASM", "SignalR"},
-                Features = new List<string>{ "Realtime App" }
+                Overview = "Queue Service using CQRS pattern. Github: https://github.com/drajatisme/Kiyu",
+                Medias = new List<string>{"images/queue-page.png", "images/swagger-page.png"},
+                Tools = new List<string>{ ".Net 6", "Web API", "Blazor WASM", "SignalR", "MudBlazor"},
+                Features = new List<string>{ "Realtime App", "Calling Queue" , "CQRS Pattern"}
             },
             new ProjectTransferObject
             {
